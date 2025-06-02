@@ -210,6 +210,13 @@ body {
     .loginbtn {
         width: 200px;
     }
+    /* form */
+.custform .offset-3{
+    margin-left: 0;
+}
+.custform{
+    margin-bottom: 20px;
+}
 }
 
 /* social icon */
@@ -367,10 +374,3 @@ body.loaded #content {
     transform: scale(1.1);
 }
 
-/* form */
-.custform .offset-3{
-    margin-left: 0;
-}
-.custform{
-    margin-bottom: 20px;
-}
