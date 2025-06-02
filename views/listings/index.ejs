@@ -1,0 +1,103 @@
+<% layout('/layouts/boilerplate') -%>
+
+  <body>
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="filter mt-4 row">
+      <div class="col-lg-9 col row align-items-center">
+
+        <div class="filter-icon  col-6 col-lg-1 ">
+          <i class="fa-solid fa-fire"></i>
+          <p>Trending</p>
+        </div>
+        <div class="filter-icon col-6 col-lg-1">
+          <i class="fa-solid fa-bed"></i>
+          <p>Rooms</p>
+        </div>
+        <div class="filter-icon  col-6 col-lg-1">
+          <i class="fa-solid fa-mountain-city"></i>
+          <p>Iconic Cities</p>
+        </div>
+        <div class="filter-icon col-6 col-lg-1">
+          <i class="fa-solid fa-mountain"></i>
+          <p>Moutain</p>
+        </div>
+        <div class="filter-icon  col-6 col-lg-1">
+          <i class="fa-brands fa-fort-awesome"></i>
+          <p>Castles</p>
+        </div>
+        <div class="filter-icon col-6 col-lg-1">
+          <i class="fa-solid fa-person-swimming"></i>
+          <p>Amazing Pools</p>
+        </div>
+        <div class="filter-icon col-6 col-lg-1">
+          <i class="fa-solid fa-campground"></i>
+          <p>Camping</p>
+        </div>
+        <div class="filter-icon  col-6 col-lg-1">
+          <i class="fa-solid fa-cow"></i>
+          <p>Farms</p>
+        </div>
+        <div class="filter-icon col-6 col-lg-1">
+          <i class="fa-brands fa-galactic-republic"></i>
+          <p>Arctic</p>
+        </div>
+        <div class="filter-icon col-6 col-lg-1">
+          <i class="fa-solid fa-igloo"></i>
+          <p>Domes</p>
+        </div>
+        <div class="filter-icon col-6  col-lg-1">
+          <i class="fa-solid fa-ship"></i>
+          <p>Boats</p>
+        </div>
+      </div>
+      <div class="filterbox col-lg-3 col-sm-12 ">
+        <div class="form-check form-switch form-check-reverse">
+          <input class="form-check-input" type="checkbox" id="switchCheckReverse">
+          <label class="form-check-label" for="switchCheckReverse">Display Totle After Text</label>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-5 ">
+
+      <% for(let listing of allListing ) { %>
+        <a href="/listing/<%= listing._id %>" class="listing-link">
+          <div class="card mb-5" style="width:22rem;">
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing-image" style="height: 20rem;">
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <p class="card-text">
+                <%= listing.title %>
+              </p>
+              <p class="card-text">
+                &#8377; <%= listing.price.toLocaleString("en-IN") %>/ night
+                  <i class="gst"> &nbsp; +18 &nbsp; GST</i>
+              </p>
+            </div>
+          </div>
+
+        </a>
+        <% } %>
+
+    </div>
+
+  </body>
+
+  <script>
+    var btn = document.getElementById("switchCheckReverse");
+
+    btn.addEventListener("click", () => {
+      let textinfo = document.getElementsByClassName("gst")
+      for (info of textinfo) {
+        if (info.style.display != "inline") {
+          info.style.display = "inline"
+        } else {
+          info.style.display = "none"
+        }
+      }
+    })
+  </script>
