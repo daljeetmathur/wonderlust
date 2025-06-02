@@ -91,6 +91,11 @@ app.use((req, res, next) => {
     next();
 })
 
+
+app.get('/', (req, res) => {
+    res.redirect('/listing');
+});
+
 // Raouter Middlerware
 app.use("/listing", listingRouter);
 app.use("/listing/:id/reviews", reviewRouter);
