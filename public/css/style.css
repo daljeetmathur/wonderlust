@@ -366,3 +366,11 @@ body.loaded #content {
     background-color: #8e2de2;
     transform: scale(1.1);
 }
+
+/* form */
+.custform .offset-3{
+    margin-left: 0;
+}
+.custform{
+    margin-bottom: 20px;
+}
