@@ -1,8 +1,7 @@
 <% layout('/layouts/boilerplate') -%>
 <script>
     const map_token = '<%= process.env.MAP_TOKEN  %> '
- 
-  const listing = '<% - JSON.stringify(listings) %>';
+    const listing = JSON.parse('<%- JSON.stringify(listings) %>');
 </script>
 
 <body>
@@ -94,31 +93,10 @@
      <div class="col col-lg-6 show offset-3 mb-5">
             <h3>Where you'll be</h3>
             <div id="map" ></div>
-
            </div>
 </body>
-<script>
-  mapboxgl.accessToken = '<%= process.env.MAP_TOKEN  %>';
-  const map = new mapboxgl.Map({
-      style: 'mapbox://styles/mapbox/streets-v12',
-      container: 'map',
-      center: [77.1025, 28.7041],
-      zoom: 9
-  });
+  
 
-    // Create a default Marker and add it to the map.
- const marker = new mapboxgl.Marker({ color: "red" })
-    .setLngLat(listing.geometry.coodinates) // Listing.geometry coordinates
-    .setPopup(new mapboxgl.Popup({ offset: 25 })
-        .setHTML(
-            `<h4>${listing.location}</h4 > <p>Exact Location will be provided after booking!</p>`
 
-        )
-    )
-    .addTo(map);
 
-        
-
-</script>
-
-<!-- <script src="/js/map.js"></script> -->
+<script src="/js/map.js"></script>
